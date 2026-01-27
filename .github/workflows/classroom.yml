@@ -1,7 +1,7 @@
 # Autograding configuration for GitHub Classroom
-# - Detect presence of pom.xml (80 points)
+# - Detect presence of pom.xml
 # - Copy the provided autograder test into the project's test sources
-# - Run `mvn test` and award remaining points if tests pass
+# - Run `mvn test` and validate tests pass
 
 name: Autograder
 
@@ -32,5 +32,13 @@ jobs:
           if [ -f .github/autograding_tests/mcon364/las/touro/edu/autograding/MainSignatureTest.java ]; then
             cp .github/autograding_tests/mcon364/las/touro/edu/autograding/MainSignatureTest.java src/test/java/mcon364/las/touro/edu/
           fi
+
       - name: Run autograding tests
         uses: education/autograding@v1
+
+      - name: Report autograding results
+        uses: education/autograding-grading-reporter@v1
+        env:
+          GRADING_RESULTS: "${{ steps.autograder.outputs.grading-score }}"
+        with:
+          runners: autograding
