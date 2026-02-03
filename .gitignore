@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -37,3 +38,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+=======
+/target/
+/.idea/
+/*.iml
+.DS_Store
+/src/test/**/MainSignatureTest.*java
+>>>>>>> dfdc7d768d6b039858d0edd95bd367e74d8584ee
