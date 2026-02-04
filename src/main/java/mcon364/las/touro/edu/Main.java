@@ -6,7 +6,15 @@ import java.util.Optional;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println(getGreeting("USERNAME"));
+        System.out.println(getGreeting("NO_SUCH_VAR"));
+        processValues(List.of(
+                List.of(5, 10, 15),     // Processes completely
+                List.of(20, 0, 25),     // Finds 0, skips to next list
+                List.of(30, 35, 40),    // Processes completely
+                List.of(45, 99, 50),    // Finds 99, terminates everything
+                List.of(55, 60, 65)     // Never reached
+        ));
     }
 
     public static Optional<String> getUserName(String envVarName){
