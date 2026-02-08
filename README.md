@@ -16,7 +16,6 @@ public static Optional<String> getUserName(String envVarName);
 ### 2. Create a public static method `getGreeting`
 - Calls `getUserName`
 - Uses `var` for local variables where the type is obvious
-- Uses a switch expression with `yield` to decide how to build the greeting based on whether the username is present
 - Constructs the greeting using `StringBuilder`
 
 ```java
