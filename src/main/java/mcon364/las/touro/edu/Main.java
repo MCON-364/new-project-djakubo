@@ -5,7 +5,16 @@ import java.util.Optional;
 
 class Main{
     public static void main(String[] args) {
-
+        getGreeting("USERNAME");
+        getGreeting("NO_SUCH_VAR");
+        List<List<Integer>> data = List.of(
+                List.of(5, 10, 15),     // Processes completely
+                List.of(20, 0, 25),     // Finds 0, skips to next list
+                List.of(30, 35, 40),    // Processes completely
+                List.of(45, 99, 50),    // Finds 99, terminates everything
+                List.of(55, 60, 65)     // Never reached
+        );
+        processValues(data);
     }
     public static Optional<String> getUserName(String envVarName){
         String result = System.getenv(envVarName);
@@ -13,8 +22,12 @@ class Main{
     }
     public static String getGreeting(String envVarName){
         StringBuilder stringbuilder = new StringBuilder();
-        var result = getUserName(envVarName);
-        stringbuilder.append(result);
+        if(getUserName(envVarName).isEmpty()){
+            stringbuilder.append("Hello, World");
+        }
+        else{
+            stringbuilder.append("Hello, "+getUserName(envVarName).get());
+        }
         return stringbuilder.toString();
     }
 
