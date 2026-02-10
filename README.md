@@ -30,7 +30,7 @@ public static String getGreeting(String envVarName);
 - Returns number of processed rows
 
 ```java
-public static Integer processValues(List<List<Integer>> data);
+public static int processValues(List<List<Integer>> data);
 ```
 
 #### Example Data for `processValues`:
